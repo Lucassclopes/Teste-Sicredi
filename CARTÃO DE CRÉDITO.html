@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html lang=¨pt-br¨>
+
+ <head>
+   <title>Calculadora Cartão de Crédito</title>
+  
+  <style>
+   p.fonte
+   {
+    font-family: "Comic Sans MS",  "Comic Sans", cursive;
+   }
+ </style>
+ </head>
+
+ <body>
+  <p class=fonte>
+
+  Limite: <input id="limite" type="number"> <br />
+  <p class=fonte>Caso suas compras não completem a lista, preencher os campos em branco com 0.</p>
+  <p class=fonte>Valor da compra: <input id="compra" type="number"></p>
+  <p class=fonte>Valor da compra: <input id="compra1" type="number"></p>
+  <p class=fonte>Valor da compra: <input id="compra2" type="number"></p>
+  <p class=fonte>Valor da compra: <input id="compra3" type="number"></p>
+  <p class=fonte>Valor da compra: <input id="compra4" type="number"></p>
+  <p class=fonte>Valor da compra: <input id="compra5" type="number"></p>
+  <p class=fonte>Valor da compra: <input id="compra6" type="number"></p>
+  <button onclick="condicao()">Calcular</button>
+
+  </p>
+
+   <script type="text/javascript">
+
+    function condicao(){
+     var limite = parseFloat(document.getElementById("limite").value);
+     var compra = parseFloat(document.getElementById("compra").value);
+     var compra1 = parseFloat(document.getElementById("compra1").value);
+     var compra2 = parseFloat(document.getElementById("compra2").value);
+     var compra3 = parseFloat(document.getElementById("compra3").value);
+     var compra4 = parseFloat(document.getElementById("compra4").value);
+     var compra5 = parseFloat(document.getElementById("compra5").value);
+     var compra6 = parseFloat(document.getElementById("compra6").value);
+
+     var condicao = (limite - compra - compra1 - compra2  - compra3 -  compra4 - compra5 -  compra6) ;
+
+     if(condicao >= 0)
+       alert("0");
+      else
+       alert("1");
+    }
+ </script>
+</body>
+</html>
