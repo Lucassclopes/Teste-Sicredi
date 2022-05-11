@@ -3,26 +3,32 @@
 <html lang=¨pt-br¨>
 <head>
 	<title>Calculadora Juros</title>
+	<style>
+   p.fonte
+   {
+    font-family: "Comic Sans MS",  "Comic Sans", cursive;
+   }
+ </style>
 </head>
+
 <body>
 	<pre>
 
-	<p><b>Selic acima de 8,5</b></p>
+<p class=fonte>Calculo de Rendimentos</p>
+
 <script>
 
 	acimaT=0
 
 	
-	periodo=Number(window.prompt("Digite o periodo da aplicação (em  meses)"))
+	periodo=Number(window.prompt("Digite o periodo da aplicação (em meses)"))
 	taxaReferencial=Number(window.prompt("Taxa referencial (em %)"))
-	taxaDeJuros=Number(window.prompt("Digite a taxa SELIC (em %)"))
-	aplicacao=Number(window.prompt("Digite o valor da aplicação se a SELIC for acima de 8.5 (se não digite 0)"))
-	aplicacao1=Number(window.prompt("Digite o valor da aplicação se a SELIC for abaixo de 8.5( se não digite 0)"))
+	taxaSelic=Number(window.prompt("Digite a taxa SELIC (em %)"))
+	aplicacao=Number(window.prompt("Digite o valor da aplicação"))
 	aplicacaoAcumulada=aplicacao;
 
-	
-
-	for(i=0;i<periodo;i++)
+	if (taxaSelic >= 8.5){
+		for(i=0;i<periodo;i++)
 	{
 		acima=((0.5+taxaReferencial)*aplicacaoAcumulada)/100;
 		document.write("\n Rendimentos do mês " + (i+1) +" :" +acima.toFixed(2))
@@ -31,30 +37,29 @@
 
 	}
 
+
 	document.write("\n Rendimentos totais: "+acimaT.toFixed(2))
 	document.write("\n Valor final: "+(acimaT+aplicacao).toFixed(2))
+}
+	else{
 
-
-</script>
-
-//----------------------------------
-
-<p><b>Selic abaixo de 8,5</b></p>
-	<script>
 
 	abaixoT=0;
-	aplicacaoAcumulada1=aplicacao1;
+	aplicacaoAcumulada=aplicacao;
 
 	for(i=0;i<periodo;i++)
 	{
-		abaixo=((taxaDeJuros*0.7+taxaReferencial)*aplicacaoAcumulada1)/100;
+		abaixo=((taxaSelic*0.7+taxaReferencial)*aplicacaoAcumulada)/100;
 		document.write("\n Rendimentos do mês " + (i+1) +" :" +abaixo.toFixed(2))
 		abaixoT+=abaixo;
-		aplicacaoAcumulada1+=abaixo;
+		aplicacaoAcumulada+=abaixo;
 	}
 
 	document.write("\n Rendimentos totais: "+abaixoT.toFixed(2))
-	document.write("\n Valor final: "+(abaixoT+aplicacao1).toFixed(2))
+	document.write("\n Valor final: "+(abaixoT+aplicacao).toFixed(2))
+}
+
+
 
 </script>
 </pre>
